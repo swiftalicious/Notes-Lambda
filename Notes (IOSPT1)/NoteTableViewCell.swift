@@ -7,18 +7,34 @@
 //
 
 import UIKit
+//Steps
+// 1. Create Protocol
+// 2. Weak Var Delegate of protocol type
+// 3. Call delegate method in IBAction
+// 4. Assign the delegate
+
+protocol NoteTableViewCellDelegate: AnyObject {
+    func shareNote(for cell: NoteTableViewCell)
+}
 
 class NoteTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    @IBOutlet weak var noteLabel: UILabel!
+    
+    var note: Note? {
+        didSet {
+            self.updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    weak var delegate: NoteTableViewCellDelegate?
+    
+    private func updateViews() {
+        guard let note = self.note else { return }
+        self.noteLabel.text = note.text
     }
-
+    
+    @IBAction func shareButtonTapped(_ sender: Any) {
+        self.delegate?.shareNote(for: self)
+    }
 }

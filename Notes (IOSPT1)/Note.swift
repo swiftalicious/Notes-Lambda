@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct Note {
+    var text: String
+}

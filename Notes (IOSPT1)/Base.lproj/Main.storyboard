@@ -40,6 +40,9 @@
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1n-Ia-cDF">
                                                     <rect key="frame" x="200" y="30" width="174" height="30"/>
                                                     <state key="normal" title="Save"/>
+                                                    <connections>
+                                                        <action selector="saveNoteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xyg-Y1-akr"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </stackView>
@@ -52,7 +55,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="LLG-47-GkJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteCell" id="LLG-47-GkJ" customClass="NoteTableViewCell" customModule="Notes__IOSPT1_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="171" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LLG-47-GkJ" id="LNo-70-Kyr">
@@ -71,6 +74,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtz-sB-SwL">
                                                             <rect key="frame" x="358" y="0.0" width="40" height="27.5"/>
                                                             <state key="normal" title="Share"/>
+                                                            <connections>
+                                                                <action selector="shareButtonTapped:" destination="LLG-47-GkJ" eventType="touchUpInside" id="PmM-Mp-f6M"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -83,6 +89,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="noteLabel" destination="U5I-L0-5UW" id="3YL-Xq-Xba"/>
                                             <segue destination="FSL-lf-93R" kind="show" identifier="toDetail" id="YQ6-AQ-WkY"/>
                                         </connections>
                                     </tableViewCell>
@@ -99,6 +106,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Quick Notes" id="TFz-wz-ibI"/>
+                    <connections>
+                        <outlet property="noteTextView" destination="lJC-lK-seh" id="HrO-XX-fc3"/>
+                        <outlet property="notesTableView" destination="Jx1-XG-pvT" id="7i0-sx-s4w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

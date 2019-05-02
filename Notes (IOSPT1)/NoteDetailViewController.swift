@@ -9,11 +9,18 @@
 import UIKit
 
 class NoteDetailViewController: UIViewController {
+    
+    var note: Note? {
+        didSet {
+            self.updateViews()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.updateViews()
 
-        // Do any additional setup after loading the view.
+
     }
     
 
